@@ -25,10 +25,11 @@ function App() {
         </ul>
       </nav> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/my-app" element={<Home />} />
-        <Route path="/cv" element={<Cv />} />
-        <Route path="/my-app/cv" element={<Cv />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/cv" element={<Cv />} />
+        </Route>
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );
