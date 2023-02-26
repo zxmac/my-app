@@ -28,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/my-app" element={<Home />} />
         <Route path="/cv" element={<Cv />} />
+        <Route path="/my-app/cv" element={<Cv />} />
       </Routes>
     </>
   );
