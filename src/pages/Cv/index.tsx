@@ -14,14 +14,11 @@ import Summary from './component/Summary';
 export default function Cv() {
   const [cv, setCV] = useState<ICv>({} as any);
   
-  const { data, error, loading } = useGoogleSheets({
+  const { data } = useGoogleSheets({
     apiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
     sheetId: process.env.REACT_APP_GOOGLE_SHEET_ID || "",
     sheetsOptions: [{ id: 'Sheet1' }],
   });
-  console.log('process', process);
-  console.log('process.env', process.env);
-  console.log('gsheetHook', { data, error, loading });
 
   useEffect(() => {
     if (!data || !data.length) return;
