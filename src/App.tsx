@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="/cv" element={<Cv />} />
+          <Route path=":p" element={<Cv />} />
         </Route>
         <Route path="*" element={<Home />} />
       </Routes>
