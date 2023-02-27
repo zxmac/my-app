@@ -25,7 +25,7 @@ function App() {
         </ul>
       </nav> */}
       <Routes>
-        <Route path="/:gapikey/:gsheetid" element={<Cv />} />
+        <Route path="cv/:gapikey/:gsheetid" element={<Cv />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </>
