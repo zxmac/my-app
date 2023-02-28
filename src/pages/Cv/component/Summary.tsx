@@ -9,7 +9,7 @@ export default function Summary(props: ISummaryProps) {
   
   return (
     <div className="summary">
-      <h2>Summary</h2>
+      <h5>Summary</h5>
       <p>{data.title}</p>
     </div>
   )
