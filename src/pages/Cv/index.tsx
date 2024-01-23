@@ -151,9 +151,11 @@ export default function Cv() {
           <div style={style.col2.div}>
             { cv.experience && <Experience list={cv.experience} /> }
           </div>
-          <div style={style.col2.div}>
-            { cv.referecence && <Reference list={cv.referecence} /> }
-          </div>
+          { cv.referecence?.length > 0 &&
+            <div style={style.col2.div}>
+              { cv.referecence && <Reference list={cv.referecence} /> }
+            </div>
+          }
         </div>
       </div>
     </div>
