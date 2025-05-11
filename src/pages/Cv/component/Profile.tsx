@@ -12,7 +12,7 @@ export default function Profile(props: IProfileProps) {
     <div className="profile">
       <div className='main-profile'>
         <div className='profile-photo'>
-          <img style={{width: '180px', borderRadius: '100px' }} src={data.photo}></img>
+          <img style={{width: '180px', borderRadius: '100px' }} src={data.photo ? data.photo : ''} referrerPolicy="no-referrer"></img>
         </div>
         <h5 style={{ textAlign: 'center' }}>{data.name}</h5>
         <p style={{ textAlign: 'center', fontStyle: 'italic' }}>{data.position}</p>
@@ -24,12 +24,11 @@ export default function Profile(props: IProfileProps) {
         <FontAwesomeIcon icon="globe" />
       </div>
       <div className='profile-links'>
-        { 
-          data.links.map((x, i) => 
-            <p key={i}>
-              <FontAwesomeIcon icon={['fab', x.key as any]} />
-              <span style={{ marginLeft: '8px' }}>{x.value}</span>
-            </p>) 
+        { data.links.map((x, i) => 
+          <p key={i}>
+            <FontAwesomeIcon icon={['fab', x.key as any]} />
+            <span style={{ marginLeft: '8px' }}>{x.value}</span>
+          </p>)
         }
       </div>
     </div>

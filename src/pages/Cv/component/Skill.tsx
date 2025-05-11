@@ -18,8 +18,8 @@ export default function Skill(props: ICvSkillProps) {
   return (
     <>
       <h5>{title}</h5>
-      {
-        data.level > 0 && <div style={{ marginLeft: '10px', marginBottom: '10px', display: 'flex' }}>
+      { data.level > 0 && 
+        <div style={{ marginLeft: '10px', marginBottom: '10px', display: 'flex' }}>
           { rate.map((x, i) => <SimpleRate opacity={x ? 1 : .5} key={i} />) }
         </div>
       }

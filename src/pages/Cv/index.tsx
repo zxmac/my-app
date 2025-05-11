@@ -8,17 +8,26 @@ import Profile from './component/Profile';
 import Reference from './component/Reference';
 import Skill from './component/Skill';
 import Summary from './component/Summary';
+import { useParams } from 'react-router-dom';
 
 // export const AppContext = createContext({});
 
 export default function Cv() {
-  const [cv, setCV] = useState<ICv>({} as any);
-  
+  const [cv, setCv] = useState<ICv>({} as any);
+
+  let { gapikey, gsheetid } = useParams();
+
   const { data } = useGoogleSheets({
-    apiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
-    sheetId: process.env.REACT_APP_GOOGLE_SHEET_ID || "",
+    apiKey: gapikey || "",
+    sheetId: gsheetid || "",
     sheetsOptions: [{ id: 'Sheet1' }],
   });
+
+  // const { data } = useGoogleSheets({
+  //   apiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
+  //   sheetId: process.env.REACT_APP_GOOGLE_SHEET_ID || "",
+  //   sheetsOptions: [{ id: 'Sheet1' }],
+  // });
 
   useEffect(() => {
     if (!data || !data.length) return;
@@ -65,7 +74,7 @@ export default function Cv() {
       };
     });
     
-    setCV({
+    setCv({
       profile: {
         photo: CvLib.findData(profileList, "PHOTO"),
         name: CvLib.findData(profileList, "NAME"),
@@ -142,9 +151,11 @@ export default function Cv() {
           <div style={style.col2.div}>
             { cv.experience && <Experience list={cv.experience} /> }
           </div>
-          <div style={style.col2.div}>
-            { cv.referecence && <Reference list={cv.referecence} /> }
-          </div>
+          { cv.referecence?.length > 0 &&
+            <div style={style.col2.div}>
+              { cv.referecence && <Reference list={cv.referecence} /> }
+            </div>
+          }
         </div>
       </div>
     </div>

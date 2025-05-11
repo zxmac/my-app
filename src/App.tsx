@@ -1,7 +1,5 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Cv from './pages/Cv';
 
@@ -14,21 +12,8 @@ library.add(fab, faUserSecret, faGlobe, faStackOverflow)
 function App() {
   return (
     <>
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/cv">CV</Link>
-          </li>
-        </ul>
-      </nav> */}
       <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path=":p" element={<Cv />} />
-        </Route>
+        <Route path="cv/:gapikey/:gsheetid" element={<Cv />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </>
