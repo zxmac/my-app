@@ -20,8 +20,12 @@ export default function Experience(props: IExperienceProps) {
           <div style={{ width: '70%' }}>
             <p>{x.position}</p>
             <p>{x.company}</p>
-            <div style={{ paddingTop: '0' }}>
-              { x.technologies.map((d, ii) => <SimpleIcon style={{ marginBottom: '10px' }} key={ii} iconSlug={d} height="20" width="20" />) }
+            <div style={{ paddingTop: '0', display: 'ruby' }}>
+              { x.technologies.map((d, ii) => 
+              <div key={ii}>
+                <span style={{ fontSize: '12px' }}>{d}</span>
+                <SimpleIcon style={{ marginLeft: '2px' }} key={ii} iconSlug={d} height="14" width="14" />
+              </div>) }
             </div>
             <div style={{ paddingTop: '5px' }}>
               <SimpleList style={{ ul: { marginLeft: '-15px' }, li: { listStyleType: 'square' }}} list={x.descriptions} />
