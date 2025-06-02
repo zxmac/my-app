@@ -4,6 +4,7 @@ export interface ICv {
     summary: ICvSummary;
     experience: ICvExperience[];
     referecence: ICvReference[];
+    education: ICvEducation[];
 }
 
 export interface ICvProfile {
@@ -48,6 +49,10 @@ export interface ICvReference {
     list: ICvBase[]
 }
 
+export interface ICvEducation {
+    list: IGSheet[]
+}
+
 export interface ICvBase {
     key: string;
     value: string;
@@ -71,4 +76,5 @@ export class GSheetLib {
     public static readonly CV_SUMMARY = "CVSMY";
     public static readonly CV_EXPERIENCE = "CVEXP";
     public static readonly CV_REFERENCE = "CVREF";
+    public static readonly CV_EDUCATION = "CVEDU";
 }
