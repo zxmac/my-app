@@ -40,6 +40,7 @@ export default function Cv() {
     const experienceList = CvLib.filterSheet(sheet, GSheetLib.CV_EXPERIENCE);
     const referenceList = CvLib.filterSheet(sheet, GSheetLib.CV_REFERENCE);
     const educationList = CvLib.filterSheet(sheet, GSheetLib.CV_EDUCATION);
+    const tabTitleList = CvLib.filterSheet(sheet, GSheetLib.CV_TABTITLE);
 
     // experience group-mapping
     const experienceTechList = experienceList.filter(x => x.key.includes("_TECH"));
@@ -82,6 +83,10 @@ export default function Cv() {
       const list: IGSheet[] = educationGroupObj[key];
       return { list };
     });
+
+    if (tabTitleList?.length && tabTitleList[0]) {
+      document.title = tabTitleList[0].value;
+    }
     
     setCv({
       profile: {
@@ -132,7 +137,7 @@ export default function Cv() {
     col2: {
       div: { padding: '0px 15px 10px 15px' }
     }
-  };
+  };  
   
   return (
     <div className="cv-container" style={{ width: '925px', margin: '0 auto' }}>

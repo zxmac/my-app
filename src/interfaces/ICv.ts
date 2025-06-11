@@ -77,4 +77,5 @@ export class GSheetLib {
     public static readonly CV_EXPERIENCE = "CVEXP";
     public static readonly CV_REFERENCE = "CVREF";
     public static readonly CV_EDUCATION = "CVEDU";
+    public static readonly CV_TABTITLE = "CVTABTITLE";
 }
