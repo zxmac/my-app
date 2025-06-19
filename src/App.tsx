@@ -6,6 +6,7 @@ import Cv from './pages/Cv';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faUserSecret, faGlobe,  } from '@fortawesome/free-solid-svg-icons'
+import Docx from './pages/Docx';
 
 library.add(fab, faUserSecret, faGlobe, faStackOverflow)
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <Routes>
         <Route path="cv/:gapikey/:gsheetid" element={<Cv />} />
+        <Route path="docx/:gapikey/:gsheetid" element={<Docx />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </>

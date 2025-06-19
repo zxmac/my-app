@@ -1,3 +1,3 @@
 import { SheetLib } from "../../lib/sheet.lib";
 
-export class CvLib extends SheetLib {}
+export class DocxLib extends SheetLib {}

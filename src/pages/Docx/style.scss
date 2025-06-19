@@ -1,0 +1,62 @@
+.docx-container {
+    background: white;
+
+    p, ul>li {
+        font-size: 14px;
+    }
+    img.simple-icon {
+        margin-right: 10px;
+        color: red !important;
+    }
+    .experience, .reference {
+        h5 {
+            margin-top: 15px;
+        }
+    }
+
+    .cv-col-1, .cv-col-2 {
+        padding-top: 10px;
+    }
+
+    .cv-col-1 {
+        background-color: #42536f !important;
+        background: #42536f !important;
+    }
+
+    .profile {
+        p {
+            margin-bottom: unset !important;
+        }
+        .main-profile {
+            margin-bottom: 15px;
+        }
+        .profile-links {
+            p {
+                // margin-bottom: 10px !important;
+            }
+        }
+    }
+
+    .summary {
+        text-align: center;
+    }
+
+    .experience {
+        p {
+            line-height: .5 !important;
+        }
+    }
+
+    .reference {
+        p {
+            line-height: .5 !important;
+        }
+        .ref-row {
+            margin-bottom: 15px;
+            
+            >div {
+                display: flex;
+            }
+        }
+    }
+}
