@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './style.scss';
 import useGoogleSheets from 'use-google-sheets';
-import { GSheetLib, ICv, ICvExperience, ICvReference, IGSheet } from '../../interfaces/ICv';
+import { GSheetLib, ICv, ICvEducation, ICvExperience, ICvReference, IGSheet } from '../../interfaces/ICv';
 import { CvLib } from './cv.lib';
 import Experience from './component/Experience';
 import Profile from './component/Profile';
@@ -9,6 +9,7 @@ import Reference from './component/Reference';
 import Skill from './component/Skill';
 import Summary from './component/Summary';
 import { useParams } from 'react-router-dom';
+import Education from './component/Education';
 
 // export const AppContext = createContext({});
 
@@ -38,6 +39,8 @@ export default function Cv() {
     const summaryList = CvLib.filterSheet(sheet, GSheetLib.CV_SUMMARY);
     const experienceList = CvLib.filterSheet(sheet, GSheetLib.CV_EXPERIENCE);
     const referenceList = CvLib.filterSheet(sheet, GSheetLib.CV_REFERENCE);
+    const educationList = CvLib.filterSheet(sheet, GSheetLib.CV_EDUCATION);
+    const tabTitleList = CvLib.filterSheet(sheet, GSheetLib.CV_TABTITLE);
 
     // experience group-mapping
     const experienceTechList = experienceList.filter(x => x.key.includes("_TECH"));
@@ -73,6 +76,17 @@ export default function Cv() {
         }))
       };
     });
+
+    // education group-mapping
+    const educationGroupObj = CvLib.groupData(educationList);
+    const educationGroupList: ICvEducation[] = Object.keys(educationGroupObj).map(key => {
+      const list: IGSheet[] = educationGroupObj[key];
+      return { list };
+    });
+
+    if (tabTitleList?.length && tabTitleList[0]) {
+      document.title = tabTitleList[0].value;
+    }
     
     setCv({
       profile: {
@@ -111,7 +125,8 @@ export default function Cv() {
         title: CvLib.findData(summaryList, "TITLE")
       },
       experience: experienceGroupList,
-      referecence: referenceGroupList
+      referecence: referenceGroupList,
+      education: educationGroupList
     });
   }, [data]);
 
@@ -122,7 +137,7 @@ export default function Cv() {
     col2: {
       div: { padding: '0px 15px 10px 15px' }
     }
-  };
+  };  
   
   return (
     <div className="cv-container" style={{ width: '925px', margin: '0 auto' }}>
@@ -154,6 +169,11 @@ export default function Cv() {
           { cv.referecence?.length > 0 &&
             <div style={style.col2.div}>
               { cv.referecence && <Reference list={cv.referecence} /> }
+            </div>
+          }
+          { cv.education?.length > 0 &&
+            <div style={style.col2.div}>
+              { cv.education && <Education list={cv.education} /> }
             </div>
           }
         </div>
