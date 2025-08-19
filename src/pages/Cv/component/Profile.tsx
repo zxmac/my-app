@@ -28,7 +28,8 @@ export default function Profile(props: IProfileProps) {
         { data.links.map((x, i) => 
           <p key={i}>
             <SimpleIcon style={{ marginLeft: '0px' }} iconSlug={x.key} height="14" width="14" />
-            <span style={{ marginLeft: '8px' }}>{x.value}</span>
+            <a href={!x.value.includes('https://') ? `https://${x.value}` : x.value} 
+              style={{ color: 'white', textDecoration: 'none'}} target="_blank">{x.value}</a>
           </p>)
         }
       </div>
