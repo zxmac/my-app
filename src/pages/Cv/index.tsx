@@ -59,7 +59,7 @@ export default function Cv() {
       };
 
       if (techObj) {
-        obj.technologies = techObj.description.split(',')
+        obj.technologies = techObj.description.split(',').filter(x => x);
       }
       
       return obj;

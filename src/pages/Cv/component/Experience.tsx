@@ -20,7 +20,7 @@ export default function Experience(props: IExperienceProps) {
           <div style={{ width: '70%' }}>
             <p>{x.position}</p>
             <p>{x.company}</p>
-            <div style={{ paddingTop: '0', display: 'ruby' }}>
+            <div style={{ paddingTop: '0', display: x.technologies.length ? 'ruby' : 'none' }}>
               { x.technologies.map((d, ii) => 
               <div key={ii}>
                 <span style={{ fontSize: '12px' }}>{d}</span>
