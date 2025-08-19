@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="200" height="200">
+  <g fill="#6cd400">
+    <!-- Left small triangle -->
+    <polygon points="0,320 128,384 128,256"></polygon>
+    <!-- Middle shape -->
+    <polygon points="128,192 256,256 256,512 128,448"></polygon>
+    <!-- Right tall shape -->
+    <polygon points="256,0 384,64 384,448 256,384"></polygon>
+  </g>
+</svg>

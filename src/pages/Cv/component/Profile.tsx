@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ICvProfile } from '../../../interfaces/ICv';
+import SimpleIcon from '../../../components/simple-icon/SimpleIcon';
 
 interface IProfileProps {
     data: ICvProfile
@@ -26,7 +27,7 @@ export default function Profile(props: IProfileProps) {
       <div className='profile-links'>
         { data.links.map((x, i) => 
           <p key={i}>
-            <FontAwesomeIcon icon={['fab', x.key as any]} />
+            <SimpleIcon style={{ marginLeft: '0px' }} iconSlug={x.key} height="14" width="14" />
             <span style={{ marginLeft: '8px' }}>{x.value}</span>
           </p>)
         }
