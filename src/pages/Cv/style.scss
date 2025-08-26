@@ -4,7 +4,7 @@
     }
     img.simple-icon {
         margin-right: 10px;
-        color: red !important;
+        filter: invert(100%);
     }
     .experience, .reference {
         h5 {
@@ -17,8 +17,8 @@
     }
 
     .cv-col-1 {
-        background-color: #42536f !important;
-        background: #42536f !important;
+        background: #263147 !important;
+        // background: #42536f !important;
     }
 
     .profile {
