@@ -19,7 +19,7 @@ export default function Education(props: IEducationProps) {
                 <h6>{r.value}</h6>
                 <p style={{ marginBottom: '7px' }}>{r.value2}</p>
                 <p>
-                    <SimpleIcon style={{ marginLeft: '2px', marginTop: '-5px' }} key={ii} iconSlug="calendar-days-solid" height="14" width="14" />
+                    <SimpleIcon className="si-c2" style={{ marginLeft: '2px', marginTop: '-5px' }} key={ii} iconSlug="calendar-days-solid" height="14" width="14" />
                     <span>{r.value3}</span>
                 </p>
               </div>)

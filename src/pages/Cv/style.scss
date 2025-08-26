@@ -3,8 +3,13 @@
         font-size: 14px;
     }
     img.simple-icon {
+        &.si-c1 {
+            filter: invert(100%);
+        }
+        &.si-c2 {
+            filter: invert(16%) sepia(11%) saturate(1631%) hue-rotate(184deg) brightness(92%) contrast(90%);
+        }
         margin-right: 10px;
-        filter: invert(100%);
     }
     .experience, .reference {
         h5 {
